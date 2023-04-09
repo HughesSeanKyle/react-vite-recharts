@@ -52,8 +52,7 @@ function App() {
 					dataKey={'price'}
 					stroke="#48BB78"
 					strokeWidth={3}
-					dot={{ r: 6 }}
-					activeDot={{ r: 8 }}
+					dot={{ r: 1 }}
 				/>
 				<XAxis
 					dataKey={'timestamp'}
