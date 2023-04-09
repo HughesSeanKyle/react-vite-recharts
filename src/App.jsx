@@ -39,16 +39,58 @@ function App() {
 	}, []);
 
 	return (
-		<>
-			<LineChart width={900} height={450} data={preparedData}>
+		<div className="mt-5">
+			<h1 className="text-center text-4xl font-bold">
+				Bitcoin 24 hour Price Chart
+			</h1>
+			<LineChart
+				className="mx-auto pt-5"
+				width={900}
+				height={450}
+				data={preparedData}
+			>
 				<CartesianGrid strokeDasharray="3 3" />
-				<Line dataKey={'price'} stroke="#8884d8" strokeWidth={2} />
-				<XAxis dataKey={'timestamp'} />
-				<YAxis domain={[27500, 28500]} dataKey={'price'} />
-				<Tooltip />
-				<Legend />
+				<Line
+					dataKey={'price'}
+					stroke="#48BB78"
+					strokeWidth={3}
+					dot={{ r: 6 }}
+					activeDot={{ r: 8 }}
+				/>
+				<XAxis
+					dataKey={'timestamp'}
+					tick={{ fontSize: '14px', fill: '#718096' }}
+				/>
+				<YAxis
+					domain={[27000, 28500]}
+					tick={{ fontSize: '14px', fill: '#718096' }}
+				/>
+				<Tooltip
+					contentStyle={{
+						backgroundColor: 'rgba(255, 255, 255, 0.8)',
+						border: 'none',
+						borderRadius: '8px',
+						boxShadow: '0px 2px 6px rgba(0, 0, 0, 0.1)',
+						color: '#1A202C',
+						fontSize: '14px',
+						fontWeight: 'bold',
+						padding: '12px',
+					}}
+					labelStyle={{ fontWeight: 'bold' }}
+					cursor={{ stroke: '#718096', strokeWidth: 2 }}
+				/>
+				<Legend
+					verticalAlign="top"
+					height={36}
+					iconType="circle"
+					wrapperStyle={{
+						fontSize: '14px',
+						fontWeight: 'bold',
+						color: '#4A5568',
+					}}
+				/>
 			</LineChart>
-		</>
+		</div>
 	);
 }
 
