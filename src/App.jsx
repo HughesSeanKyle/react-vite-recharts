@@ -33,3 +33,10 @@ function App() {
 }
 
 export default App;
+
+[
+	{ timestamp: '4/8/2023 1:45 AM', price: 27940.316849290357 },
+	{ timestamp: '4/8/2023 1:51 AM', price: 27937.746214330138 },
+	{ timestamp: '4/8/2023 1:55 AM', price: 27945.530505731716 },
+	{ timestamp: '4/8/2023 1:59 AM', price: 27934.43871284895 },
+];
