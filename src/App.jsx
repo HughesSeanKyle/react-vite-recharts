@@ -23,7 +23,6 @@ function App() {
 			)
 			.then((response) => {
 				setBitcoinData(response.data);
-				console.log('bitcoinData', bitcoinData);
 				const prepareData = response.data.prices.map((dataPoint) => {
 					return {
 						timestamp: moment(dataPoint[0]).format('M/D/YYYY'),
@@ -31,7 +30,6 @@ function App() {
 					};
 				});
 				setPreparedData(prepareData);
-				console.log('preparedData', preparedData);
 			})
 			.catch((error) => {
 				console.log(error);
