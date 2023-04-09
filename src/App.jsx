@@ -1,5 +1,14 @@
 import axios from 'axios';
 import moment from 'moment';
+import {
+	LineChart,
+	Line,
+	XAxis,
+	YAxis,
+	Tooltip,
+	Legend,
+	CartesianGrid,
+} from 'recharts';
 import { useState, useEffect } from 'react';
 import './App.css';
 
@@ -17,7 +26,7 @@ function App() {
 				console.log('bitcoinData', bitcoinData);
 				const prepareData = response.data.prices.map((dataPoint) => {
 					return {
-						timestamp: moment(dataPoint[0]).format('M/D/YYYY h:mm A'),
+						timestamp: moment(dataPoint[0]).format('M/D/YYYY'),
 						price: dataPoint[1],
 					};
 				});
@@ -29,14 +38,18 @@ function App() {
 			});
 	}, []);
 
-	return;
+	return (
+		<>
+			<LineChart width={900} height={450} data={preparedData}>
+				<CartesianGrid strokeDasharray="3 3" />
+				<Line dataKey={'price'} stroke="#8884d8" strokeWidth={2} />
+				<XAxis dataKey={'timestamp'} />
+				<YAxis domain={[27500, 28500]} dataKey={'price'} />
+				<Tooltip />
+				<Legend />
+			</LineChart>
+		</>
+	);
 }
 
 export default App;
-
-[
-	{ timestamp: '4/8/2023 1:45 AM', price: 27940.316849290357 },
-	{ timestamp: '4/8/2023 1:51 AM', price: 27937.746214330138 },
-	{ timestamp: '4/8/2023 1:55 AM', price: 27945.530505731716 },
-	{ timestamp: '4/8/2023 1:59 AM', price: 27934.43871284895 },
-];
